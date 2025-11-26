@@ -13,7 +13,9 @@ O objetivo do projeto é documentar a jornada de aprendizado, desde os primeiros
 - Métricas, monitoramento e relatórios  
 - Boas práticas de design conversacional e UX  
 
-O documento completo do projeto está disponível [neste PDF](Estudos%20e%20Construção%20de%20um%20Agente%20Inteligente%20com%20BLiP.pdf).
+O documento completo do projeto está disponível [neste PDF](blip-agente/Estudos_Agente_Blip.pdf).
+
+`blip-agente/Estudos_Agente_Blip.pdf`
 
 `Estudos e Construção de um Agente Inteligente com BLiP.PDF`
 
