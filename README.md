@@ -13,7 +13,7 @@ O objetivo do projeto é documentar a jornada de aprendizado, desde os primeiros
 - Métricas, monitoramento e relatórios  
 - Boas práticas de design conversacional e UX  
 
-O documento completo do projeto está disponível [neste PDF](blip-agente/Estudos_BlIP_Agente.pdf)
+O documento completo do projeto está disponível [neste PDF](blip-agente/Estudos_Agente_Blip.pdf)
 
 `blip-agente/Estudos_BlIP_Agente.pdf`
 
