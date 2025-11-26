@@ -21,24 +21,27 @@ O documento completo do projeto está disponível [neste PDF](Estudos_Agente_Bli
 
 ## 📑 Índice resumido do documento
 
-1. [Introdução](#introdução)  
-2. [O que aprendi sobre o BLiP](#o-que-aprendi-sobre-o-blip)  
-3. [Automação de Conversas (Builder / Fluxo Visual)](#automação-de-conversas-builder--fluxo-visual)  
-4. [Agentes Inteligentes — IA integrada ao fluxo](#agentes-inteligentes-ia-integrada-ao-fluxo)  
-5. [Ecossistema de Canais](#ecossistema-de-canais)  
-   - 5.1 APIs poderosas e flexíveis  
-   - 5.2 Integração com sistemas externos  
-   - 5.3 Métricas, relatórios e monitoramento  
-6. [Experiência prática](#experiência-prática)  
-7. [Antes de tudo: Rascunho no papel](#rascunho-no-papel)  
-8. [Uso de IA para análise e melhoria do fluxo](#uso-de-ia-para-análise-e-melhoria-do-fluxo)  
-9. [Estruturação no BLiP](#estruturação-no-blip)  
-10. [Diálogos por fase](#diálogos-por-fase)  
-11. [Fluxo completo em Mermaid](#fluxo-completo-em-mermaid)  
-12. [Resultados práticos do projeto](#resultados-práticos-do-projeto)  
-13. [Visualização do Fluxo no BLiP](#visualização-do-fluxo-no-blip)  
-14. [Conclusão](#conclusão)  
-15. [Referências](#referências)
+# Índice do Projeto — Agente Inteligente BLiP
+
+1. **Introdução**
+2. **O que aprendi sobre o BLiP**
+3. **Automação de Conversas (Builder / Fluxo Visual)**
+4. **Agentes Inteligentes — IA integrada ao fluxo**
+5. **Ecossistema de Canais**
+   5.1. APIs poderosas e flexíveis  
+   5.2. Integração com sistemas externos  
+   5.3. Métricas, relatórios e monitoramento
+6. **Experiência prática**
+7. **Antes de tudo: Rascunho no papel**
+8. **Uso de IA para análise e melhoria do fluxo**
+9. **Estruturação no BLiP**
+10. **Diálogos por fase**
+11. **Fluxo completo em Mermaid**
+12. **Resultados práticos do projeto**
+13. **Visualização do Fluxo no BLiP**
+14. **Conclusão**
+15. **Referências**
+
 
 ---
 
@@ -75,60 +78,74 @@ O documento completo do projeto está disponível [neste PDF](Estudos_Agente_Bli
 ## Fluxo completo em Mermaid
 
 ```mermaid
----
-config:
-  layout: elk
----
+%%{init: {'flowchart': {'layout': 'adaptive'}}}%%
 flowchart TB
-    A1["1.0 - Boas-vindas"] --> A2["1.1 - Tem cadastro?"]
-    A2 -- "1.1.1 Não" --> B1["3.0 - Cadastro rápido"]
-    A2 -- "1.1.2 Sim" --> C1["2.0 - Inserir CPF"]
-    C1 --> C2["2.1 - Inserir CPF"]
-    C2 --> C3["2.2 - Confirmação CPF"]
-    C3 --> C4["2.3 - Analisando CPF"]
-    C4 -- "2.3.1 CPF não encontrado" --> C2
-    C4 -- "2.3.2 CPF localizado" --> D1["5.0 - Menu Principal"]
-    B1 --> B2["3.1 - Inserir nome"]
-    B2 --> B3["3.2 - Inserir telefone"]
-    B3 --> B4["3.3 - Inserir CPF"]
-    B4 --> B5["3.4 - Validar CPF"]
-    B5 -- "3.4.1 CPF inválido" --> B4
-    B5 -- "3.4.2 CPF válido" --> B5a["3.5 - CPF válido"]
-    B5a --> B6["3.6 - Inserir e-mail"]
-    B6 --> B7["3.7 - Inserir data de nascimento"]
-    B7 --> B8["3.8 - Inserir endereço"]
-    B8 --> B9["3.9 - Confirmação cadastro"]
-    B9 -- Sim --> B10["3.10 - Envio SMS"]
-    B9 -- Não --> B11["3.11 - Envio e-mail"]
-    B10 --> B12["3.12 - Validação código"]
-    B11 --> B12
-    B12 --> C1
-    D1 --> E1["5.1 - Informações do Pedido"] & E2["5.2 - Dados do Cliente"] & E3["5.3 - Suporte Técnico"] & E4["5.4 - Agendamento de Entrega"] & E5["5.5 - Atendimento Humano"]
-    E1 --> F1["6.1 - Consultar pedido"]
-    F1 --> F2["6.2 - Status da entrega"]
-    F2 --> F3["6.3 - Valor e detalhes"]
-    F3 --> D1 & F4["6.4 - Atendimento humano"] & F5["6.5 - Encerrar atendimento"]
-    E2 --> G1["7.1 - Informações pessoais"]
-    G1 --> G2["7.2 - Endereço"]
-    G2 --> D1 & F4 & F5
-    E3 --> H1["8.1 - Coleta do problema"]
-    H1 --> H2["8.2 - Sugestão automática"]
-    H2 --> H3{"8.3 - Problema resolvido?"}
-    H3 -- Sim --> D1
-    H3 -- Não --> F4
-    E4 --> I1["9.1 - Selecionar data"]
-    I1 --> I2["9.2 - Confirmar agendamento"]
-    I2 --> D1
-    E5 --> J1["10.1 - Motivo do contato"]
-    J1 --> J2["10.2 - Cancelamento ou resolução"]
-    J2 --> J3["10.3 - Final atendimento humano"]
-    J3 --> K1["11.0 - Pesquisa de satisfação"]
-    K1 -- "11.1 Muito satisfeito" --> L1["12.0 - Encerrar atendimento"]
-    K1 -- "11.2 Satisfeito" --> L1
-    K1 -- "11.3 Neutro" --> L1
-    K1 -- "11.4 Insatisfeito" --> L1
-    K1 -- "11.5 Muito insatisfeito" --> L1
-    L1 --> M1["12.1 - Agradecimento"]
+    A0(["Início"]) --> A1["1.0 Boas-vindas"]
+    A1 --> A2{"1.1 Tem cadastro?"}
+    A2 -- Sim --> B1["2.0 Inserir CPF"]
+    A2 -- Não --> C1["3.0 Cadastro Rápido"]
+    C1 --> C2["3.1 Inserir Nome"]
+    C2 --> C3["3.2 Inserir Telefone"]
+    C3 --> C4["3.3 Inserir CPF"]
+    C4 --> C5["3.4 Validar CPF"]
+    C5 --> C6["3.5 CPF Válido"]
+    C6 --> C7["3.6 Inserir E-mail"]
+    C7 --> C8["3.7 Inserir Data Nascimento"]
+    C8 --> C9["3.8 Inserir Endereço"]
+    C9 --> C10{"3.9 Confirma Cadastro?"}
+    C10 -- Sim --> C11["3.10 Envio SMS"]
+    C10 -- Não --> C12["3.11 Envio E-mail"]
+    C11 --> C13["3.12 Validação Código"]
+    C12 --> C13
+    C13 --> B1
+    B1 --> B2["2.1 Confirmar CPF"]
+    B2 --> B3["2.2 Analisando CPF"]
+    B3 -- Não localizado --> B4["2.3 Inserir CPF novamente"]
+    B4 --> B1
+    B3 -- Localizado --> M0["5.0 Menu Principal"]
+    M0 --> M1["5.1 Informações do Pedido"] & M2["5.2 Dados do Cliente"] & M3["5.3 Reclamações"] & M4["5.4 Agendar Entrega"] & H4["6.4 Atendimento Humano"] & H5["6.5 Encerrar Atendimento"]
+    M1 --> P1["6.1 Consultar Pedido"]
+    P1 --> P2["6.2 Status da Entrega"]
+    P2 --> M0 & P3["6.3 Valor e Detalhes"] & H5 & H4
+    P3 --> H5 & H4 & M0
+    M2 --> D1["7.1 Informações Pessoais"]
+    D1 --> D2["7.3 Editar Dados do Cliente"] & M0 & H5 & H4
+    D2 --> E0["7.4 Escolher Campo"]
+    E0 --> E1["7.4.1 Nome"] & E2["7.4.2 Data Nascimento"] & E3["7.4.3 Editar CPF"] & E4["7.4.4 Editar Telefone"] & E5["7.4.5 Editar Endereço"] & M0
+    E5 --> ER1["7.4.6 Rua/Avenida"]
+    ER1 --> ER2["7.4.7 Número"]
+    ER2 --> ER3["7.4.8 Complemento"]
+    ER3 --> ER4["7.4.9 Bairro"]
+    ER4 --> ER5["7.4.10 Cidade"]
+    ER5 --> ER6["7.4.11 Estado"]
+    ER6 --> ER7["7.4.12 CEP"]
+    ER7 --> ER8["7.4.13 Dados Atualizados"]
+    ER8 --> M0 & H4
+    H4 --> HA["10.0 Cancelamento"] & HB["10.1 Solucionar Problema"] & HC["10.2 Finalizar Atendimento Humano"]
+    HA --> H5
+    HB --> H5
+    HC --> S0["11.0 Pesquisa de Satisfação"]
+    S0 --> S1["11.1 Muito Satisfeito"] & S2["11.2 Satisfeito"] & S3["11.3 Neutro"] & S4["11.4 Insatisfeito"] & S5["11.5 Muito Insatisfeito"]
+    S1 --> S6["12.0 Encerrar Atendimento"]
+    S2 --> S6
+    S3 --> S6 & H4
+    S4 --> S6 & H4
+    S5 --> S6 & H4
+    S6 --> H5
+    M3 --> R0["8.0 Acompanhar/Mudar Pedido"] & R1["Dúvidas do Produto"] & R2["Pagamento"] & R3["Reclamações"] & R4["Meu Cadastro"] & R5["Atendimento Humano"] & M0 & H5
+    R1 --> H4
+    R2 --> H4
+    R3 --> H4
+    R4 --> M2
+    R5 --> H4
+    R0 --> S01["Status → Consultar Pedido"] & S02["8.1 Rastreio"] & S03["Cancelar Pedido"] & S04["Trocar Produto"] & M0 & H5
+    S01 --> P1
+    S02 --> M1
+    S03 --> H4
+    S04 --> H4
+
+    S04 --> H4
+
     M1 --> M2["12.2 - Deseja voltar ao menu?"]
     M2 --> D1 & M3["12.3 - Fim do fluxo"]
     R1["4.0 - Reservado"]
