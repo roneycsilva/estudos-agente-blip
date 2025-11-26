@@ -3,10 +3,13 @@
 **Autor:** Roney Cesar  
 **Ano:** 2025  
 
-Este repositório reúne estudos e a construção de um **Agente Inteligente** utilizando a plataforma **BLiP**, combinando automação conversacional e suporte de IA generativa (ChatGPT).  
+Este repositório apresenta o desenvolvimento de um **Agente Inteligente** na plataforma **BLiP**, explorando automação conversacional, fluxos visuais e integração com IA generativa (ChatGPT).
 
-O objetivo do projeto é documentar a jornada de aprendizado, desde os primeiros rascunhos no papel até a implementação final do assistente digital, destacando:  
+O projeto tem como objetivo documentar toda a jornada, desde os rascunhos iniciais até a implementação funcional do assistente, destacando conceitos, práticas e decisões de design que garantem um bot eficiente, estruturado e escalável.
 
+O **fluxo principal já está funcional dentro do BLiP**, permitindo navegação completa e testes práticos.  
+
+A **integração com APIs externas**, como envio de SMS e conexões com sistemas internos, será implementada na **próxima etapa**, expandindo a automação e aprimorando a inteligência do agente.
 - Automação de conversas e fluxos visuais no BLiP  
 - Agentes inteligentes integrados ao fluxo  
 - Integração com múltiplos canais de atendimento  
